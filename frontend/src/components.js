@@ -228,7 +228,7 @@ export const TradingSignals = ({ darkMode }) => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-          AI Trading Signals
+          FX Trading Signals
         </h2>
         <div className="flex space-x-2">
           <div className="flex items-center space-x-2 bg-green-100 dark:bg-green-900 px-3 py-1 rounded-full">
