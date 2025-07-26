@@ -518,7 +518,7 @@ const AIInsights = ({ darkMode }) => (
       <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
         <span className="text-white text-xs">🤖</span>
       </div>
-      <h3 className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>AI Market Insights</h3>
+      <h3 className={`text-lg font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>FX Market Insights</h3>
     </div>
     
     <div className="space-y-3">
