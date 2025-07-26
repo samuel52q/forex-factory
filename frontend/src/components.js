@@ -132,7 +132,7 @@ export const Header = ({ activeTab, setActiveTab, darkMode, setDarkMode }) => {
               <span className="text-white font-bold text-sm">AI</span>
             </div>
             <h1 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              TradingAI<span className="text-blue-500">Pro</span>
+              FX<span className="text-blue-500">Signals</span>
             </h1>
           </div>
           
