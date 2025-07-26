@@ -1,52 +1,75 @@
-import { useEffect } from "react";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import './App.css';
+import {
+  Header,
+  HeroSection,
+  Dashboard,
+  ArbitrageSection,
+  Portfolio,
+  TradingSection,
+  Analytics
+} from './components';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+function App() {
+  const [activeTab, setActiveTab] = useState('Dashboard');
+  const [darkMode, setDarkMode] = useState(true);
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Dashboard':
+        return (
+          <>
+            <HeroSection darkMode={darkMode} />
+            <div className="max-w-7xl mx-auto px-6 py-8">
+              <Dashboard darkMode={darkMode} />
+            </div>
+          </>
+        );
+      case 'Arbitrage':
+        return (
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <ArbitrageSection darkMode={darkMode} />
+          </div>
+        );
+      case 'Portfolio':
+        return (
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <Portfolio darkMode={darkMode} />
+          </div>
+        );
+      case 'Trading':
+        return (
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <TradingSection darkMode={darkMode} />
+          </div>
+        );
+      case 'Analytics':
+        return (
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <Analytics darkMode={darkMode} />
+          </div>
+        );
+      default:
+        return (
+          <>
+            <HeroSection darkMode={darkMode} />
+            <div className="max-w-7xl mx-auto px-6 py-8">
+              <Dashboard darkMode={darkMode} />
+            </div>
+          </>
+        );
     }
   };
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}>
+      <Header 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+      {renderContent()}
     </div>
   );
 }
