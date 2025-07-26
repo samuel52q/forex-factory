@@ -129,7 +129,7 @@ export const Header = ({ activeTab, setActiveTab, darkMode, setDarkMode }) => {
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">AI</span>
+              <span className="text-white font-bold text-sm">FX</span>
             </div>
             <h1 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               FX<span className="text-blue-500">Signals</span>
